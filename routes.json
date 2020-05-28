@@ -1,0 +1,34 @@
+{
+    "routes": [
+        {
+            "route": "/index.html",
+            "allowedRoles": [
+                "anonymous"
+            ]
+        },
+        {
+            "route": "/home/*",
+            "allowedRoles": [
+                "reader"
+            ]
+        },
+        {
+            "route": "/login",
+            "serve": "/.auth/login/aad"
+        },
+        {
+            "route": "/logout",
+            "serve": "/.auth/logout"
+        }
+    ],
+    "platformErrorOverrides": [
+        {
+            "errorType": "NotFound",
+            "serve": "/custom-404.html"
+        },
+        {
+            "errorType": "Unauthenticated",
+            "serve": "/login"
+        }
+    ]
+}
